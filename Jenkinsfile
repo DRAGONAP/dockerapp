@@ -48,7 +48,7 @@ pipeline {
 
     stage('Docker Login') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker_demo', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'Nexus', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh """
                         echo "$DOCKER_PASS" | docker login $REGISTRY_URL -u "$DOCKER_USER" --password-stdin
                     """
